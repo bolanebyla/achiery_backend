@@ -9,6 +9,7 @@
     - title
     - description
     - created_at
+    - updated_at
     - user_id (fk `users.id`)
     - archived_at
     - kind (`ACHIEVEMENT`, `QUEST`, `CHALLENGE`)

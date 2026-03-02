@@ -2,7 +2,11 @@
 
 ## Next release (0.1.0) - Основные сущности и API
 
-- [ ] Таблицы: `objectives`, `progress_events`, `levels`, `user_progress`
+- [ ] Таблицы и админка: 
+  - [X] `objectives`
+  - [ ] `progress_events`
+  - [ ] `levels`
+  - [ ] `user_progress`
 - [ ] API для создания цели (ачивка, квест) пользователем
 - [ ] API для увеличения счётчика выполнения целей
 - [ ] API для получения целей пользователя по типу и фильтрам
