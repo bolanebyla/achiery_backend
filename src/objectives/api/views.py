@@ -3,8 +3,8 @@ from typing import ClassVar
 from rest_framework.viewsets import ModelViewSet
 
 from objectives.api.serializers import (
-    ObjectiveReadSerializer,
     ObjectiveCreateSerializer,
+    ObjectiveReadSerializer,
     ObjectiveUpdateSerializer,
 )
 from objectives.models import Objective

@@ -17,5 +17,3 @@ class ObjectiveAdmin(admin.ModelAdmin):
     )
 
     list_filter = ("kind", "user")
-
-

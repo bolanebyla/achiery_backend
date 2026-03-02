@@ -20,6 +20,7 @@ class ObjectiveCreateSerializer(serializers.ModelSerializer):
             "parent_id",
         ]
 
+
 class ObjectiveUpdateSerializer(serializers.ModelSerializer):
     """Сериализатор для изменения цели"""
 
@@ -31,6 +32,7 @@ class ObjectiveUpdateSerializer(serializers.ModelSerializer):
             "difficulty",
             "target_value",
         ]
+
 
 class ObjectiveReadSerializer(serializers.ModelSerializer):
     """Сериализатор для создания цели"""
