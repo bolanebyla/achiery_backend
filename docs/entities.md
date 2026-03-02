@@ -14,9 +14,22 @@
     - kind (`ACHIEVEMENT`, `QUEST`, `CHALLENGE`)
     - current_value
     - target_value
+    - completed_at
     - difficulty (`1`, `2`, `3`, `4`)
     - parent_id (fk `objectives.id`)
-    - ? completed_at
+    - frequency (`WEEKLY`, `DAILY`, `MONTHLY`)
+
+## Прогресс периодических целей (ObjectivePeriodProgress)
+
+- Отслеживание выполнения челенджей за периоды
+- Таблица: `objective_period_progress`
+- Поля:
+    - id
+    - objective_id (fk `objectives.id`)
+    - created_at
+    - period_start
+    - period_end
+    - current_value
 
 ## Событие прогресса (ProgressEvent)
 
