@@ -1,5 +1,6 @@
 from typing import ClassVar
 
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from objectives.api.serializers import (
@@ -12,6 +13,7 @@ from objectives.models import Objective
 
 class ObjectivesViewSet(ModelViewSet):
     http_method_names = ["get", "post", "put", "delete", "head", "options"]  # noqa: RUF012
+    permission_classes: ClassVar = [IsAuthenticated]
     # TODO: получать только цели пользователя
     # TODO: добавить фильтр по виду цели
     queryset = Objective.objects.all().order_by("-id")
