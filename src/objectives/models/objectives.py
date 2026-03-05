@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -14,50 +16,49 @@ class Objective(models.Model):
     """Цель"""
 
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user: User = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at: datetime = models.DateTimeField(auto_now_add=True)
+    updated_at: datetime = models.DateTimeField(auto_now=True)
 
-    title = models.TextField(
+    title: str = models.TextField(
         verbose_name="Название",
         db_comment="Название",
     )
-    description = models.TextField(
+    description: str = models.TextField(
         verbose_name="Описание",
         db_comment="Описание",
     )
 
-    difficulty = models.IntegerField(
+    difficulty: int = models.IntegerField(
         choices=[(1, 1), (2, 2), (3, 3), (4, 4)],
         verbose_name="Сложность",
         db_comment="Сложность",
     )
 
-    kind = models.TextField(
+    kind: ObjectiveKinds = models.TextField(
         choices=ObjectiveKinds.choices,
         verbose_name="Вид цели",
         db_comment="Вид цели",
     )
 
-    target_value = models.IntegerField(
+    target_value: int = models.IntegerField(
         verbose_name="Необходимо для выполнения",
         db_comment="Необходимо для выполнения",
     )
-    current_value = models.IntegerField(
+    current_value: int = models.IntegerField(
         verbose_name="Текущее значение",
         db_comment="Текущее значение",
     )
 
-    parent_id = models.ForeignKey(
+    parent: "Objective" = models.ForeignKey(
         "Objective",
         on_delete=models.PROTECT,
         null=True,
     )
 
-    completed_at = models.DateTimeField(null=True)
-
-    archived_at = models.DateTimeField(null=True)
+    completed_at: datetime = models.DateTimeField(null=True)
+    archived_at: datetime = models.DateTimeField(null=True)
 
     class Meta:
         db_table = "objectives"

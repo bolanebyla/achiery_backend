@@ -8,6 +8,7 @@ from objectives.api.serializers import (
     ObjectiveReadSerializer,
     ObjectiveUpdateSerializer,
 )
+from objectives.deps import create_create_objective_use_case
 from objectives.models import Objective
 
 
@@ -29,4 +30,6 @@ class ObjectivesViewSet(ModelViewSet):
 
     # TODO: вынести логику создания в юзкейс
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        use_case = create_create_objective_use_case()
+
+        use_case.execute(serializer=serializer, user=self.request.user)
