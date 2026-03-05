@@ -1,5 +1,6 @@
 from typing import ClassVar
 
+from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
@@ -28,8 +29,8 @@ class ObjectivesViewSet(ModelViewSet):
     def get_serializer_class(self):
         return self.serializer_action_classes.get(self.action, self.serializer_class)
 
-    # TODO: вынести логику создания в юзкейс
     def perform_create(self, serializer):
         use_case = create_create_objective_use_case()
+        user: User = self.request.user
 
-        use_case.execute(serializer=serializer, user=self.request.user)
+        use_case.execute(serializer=serializer, user=user)
