@@ -17,7 +17,7 @@ class ObjectiveCreateSerializer(serializers.ModelSerializer):
             "kind",
             "target_value",
             "current_value",
-            "parent_id",
+            "parent",
         ]
 
 
@@ -46,6 +46,6 @@ class ObjectiveReadSerializer(serializers.ModelSerializer):
             "difficulty",
             "target_value",
             "current_value",
-            "parent_id",
+            "parent",
             "completed_at",
         ]

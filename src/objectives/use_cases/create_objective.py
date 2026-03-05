@@ -15,5 +15,5 @@ class CreateObjectiveUseCase:
     ) -> None:
         objective: Objective = serializer.save(user=user)
 
-        if objective.parent is not None and objective.parent.kind == objective.kind:
+        if objective.parent is not None and objective.parent.kind != objective.kind:
             raise ValidationError("Вид `kind` родительской цели должен совпадать с видом цели")
